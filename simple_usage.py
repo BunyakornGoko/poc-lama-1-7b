@@ -59,19 +59,19 @@ def simple_finance_llm(question: Optional[str] = None, force_cpu: bool = False) 
             device = "cuda"
             dtype = torch.float16
             use_8bit = True
-            max_tokens = 100  # Reduced
+            max_tokens = 500  # Increased from 250
             print("⚡ Using 8-bit quantization for low GPU memory")
         else:  # For higher-end GPUs
             device = "cuda"
             dtype = torch.float16
             use_8bit = False
-            max_tokens = 200
+            max_tokens = 800  # Increased from 400
             print("🚀 Using full precision on high-memory GPU")
     else:
         device = "cpu"
         dtype = torch.float32
         use_8bit = False
-        max_tokens = 150
+        max_tokens = 600  # Increased from 300
         print("🖥️ Using CPU (slower but reliable)")
 
     print(f"Loading model on {device}...")
